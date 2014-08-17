@@ -1,0 +1,36 @@
+<html>
+<head>
+
+<script src="jquery.js"></script>
+<script src="instagram.min.js"></script>
+<script>
+var imgs;
+jQuery(function($) {
+  $('.instagram').on('willLoadInstagram', function(event, options) {
+    console.log(options);
+  });
+  $('.instagram').on('didLoadInstagram', function(event, response) {
+    console.log(response);
+	imgs=response;
+	lin=String(response.data[0].images.standard_resolution.url)
+	console.log(String(response.data[0].images.standard_resolution.url));
+	$('#theDiv').prepend('<img id="theImg" src='+ lin +' />');
+	
+  });
+  $('.instagram').instagram({
+    hash: 'love',
+    clientId: '2e39de636b174160add1ed0f94462a2b'
+  });
+});
+</script>
+</head>
+<body>
+<div id="theDiv">Where is the image?</div>
+<div class="instagram"></div>
+</body>
+</html>
+
+
+
+
+
