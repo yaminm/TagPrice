@@ -89,7 +89,7 @@ function getDB(tagName){
     function FaceBook(){
         var FbDB,
             hashtag=TheTAG,
-            accessToken="CAACEdEose0cBAFQpgtKit5hztdAQ2oCBDWnRTrZBB1lblWIqZBAKjZA8vZCDgjBsU7T6xLz0wJa25dfXRPl2a2xCgfhvsgvyJLSZAFIv930ySdTJ9gLZCe6f39x53Vr1bqOUjYJXFXpgtEdYoV1hvBVQW8RJWqLUZCfF5ZBKJfzQGQS0jDQZAZBCsT86CKXRmpz0KT14Llu37ZA9PWS1l5A16zZBo5CvGvf0cTIZD";
+            accessToken="CAACEdEose0cBAGVQn5EjUDF2i4Cn1M7GKZAjIiWrivmnPW321ziSZBxr40jIZA7i2WzocStg42EFNhRPkKRZAjAGO0Wi6FnPa7RMGHgZAToP5sO3SDB61Gcdncg861lgkKPRYluaVBOZBzEJQygwZCxphAn1OPWU2rWTP3DrUSNPOAZAnZBCyB33TzNtWcqTJwdn3Nb2J5FRrntZCHgriZChuZCLeR3OYmxGZCKUZD";
 
         $.get( "https://graph.facebook.com/v1.0/search?access_token="+accessToken+"&format=json&meth" +
             "od=get&pretty=0&q=%23"+hashtag+"&suppress_http_code=1&type=post"

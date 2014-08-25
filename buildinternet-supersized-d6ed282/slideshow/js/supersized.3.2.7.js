@@ -15,7 +15,9 @@
 	/* Place Supersized Elements
 	----------------------------*/
 	$(document).ready(function() {
+			$('body').append('<ul id="demo-block"><li> THE TEXT OF THE PIC!!!!</li></ul>');
 		$('body').append('<div id="supersized-loader"></div><ul id="supersized"></ul>');
+
 	});
     
     
@@ -29,6 +31,7 @@
         base.$el = $(el);
         base.el = el;
         vars = $.supersized.vars;
+		
         // Add a reverse reference to the DOM object
         base.$el.data("supersized", base);
         api = base.$el.data('supersized');
@@ -83,6 +86,7 @@
 					if (base.options.slide_links) markers = markers+'<li class="slide-link-'+thisSlide+'" ><a>'+markerContent+'</a></li>';
 					// Slide Thumbnail Links
 					if (base.options.thumb_links){
+					
 						base.options.slides[thisSlide].thumb ? thumbImage = base.options.slides[thisSlide].thumb : thumbImage = base.options.slides[thisSlide].image;
 						thumbMarkers = thumbMarkers+'<li class="thumb'+thisSlide+'"><img src="'+thumbImage+'"/></li>';
 					};
@@ -168,7 +172,8 @@
 			
 			var slideCurrent= base.el+' li:eq('+vars.current_slide+')';
 			img.appendTo(slideCurrent).wrap('<a ' + imageLink + linkTarget + '></a>').parent().parent().addClass('image-loading activeslide');
-			
+						//$('#bla').text("fg");
+
 			img.load(function(){
 				base._origDim($(this));
 				base.resizeNow();	// Resize background image
@@ -458,13 +463,15 @@
         
         /* Next Slide
 		----------------------------*/
-		base.nextSlide = function(){
+        var i=0;//MY EDIT;for the
+
+        base.nextSlide = function(){
 			
 			if(vars.in_animation || !api.options.slideshow) return false;		// Abort if currently animating
 				else vars.in_animation = true;		// Otherwise set animation marker
 				
 		    clearInterval(vars.slideshow_interval);	// Stop slideshow
-		    
+
 		    var slides = base.options.slides,					// Pull in slides array
 				liveslide = base.$el.find('.activeslide');		// Find active slide
 				$('.prevslide').removeClass('prevslide');
@@ -531,7 +538,14 @@
 			}
 		    
 		    nextslide.css('visibility','hidden').addClass('activeslide');	// Update active slide
-		    
+
+           //MY EDIT!;FOR TEXT;
+            i++;
+            $("#text").html(i);
+
+
+
+		    //END
 	    	switch(base.options.transition){
 	    		case 0: case 'none':	// No transition
 	    		    nextslide.css('visibility','visible'); vars.in_animation = false; base.afterAnimation();
