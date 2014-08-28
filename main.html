@@ -9,14 +9,41 @@
 <body>
 <script>
 
-    getDB("love");
-    setTimeout(function(){
+    var accessKey="CAACEdEose0cBAOdVTSeBt9fsIkLon6uurcsM2uot8u1U0M2WXTm65u8gaZAD6uopz295SDuVkEPmaoSZBSrtOacIGOWkwSmsSqoKRTWMSL0xK8yoSk6RpVtTmTbMEIodsWEEaCn3rPzNdOSwMrLZC1I2SuL8ziWZARSx1AyXYg8duT8jMmLwO3GKbDoiCSRcbqAuKQ1CgiMukWvuoO6rgYWRmSDTI20ZD";
+
+
+    setInterval(function(){
+        getDB("lolatortia",accessKey);
         console.log("DB4:");
         console.log(DB4);
     },2000)
+var a=0;
+    setInterval(function(){
+        console.log(DB4[a].picUrl);
+        console.log(a);
+        console.log(DB4.length);
 
+        document.getElementById("text").innerHTML = DB4[a].text;
+        document.getElementById("name").innerHTML = DB4[a].fullName;
+        document.getElementById("pic").innerHTML = '<img src='+DB4[a].profilePic+'>';
+        document.getElementById("theDiv").innerHTML = '<img src='+DB4[a].picUrl+'>';
+        a=(a+1)%DB4.length;
+
+    },2000)
 </script>
-<div id="theDiv">Where is the image?</div>
+<table>
+    <tr>
+        <td>
+            <div id="theDiv">Where is the image?</div>
+        </td>
+        <td>
+            <div id="pic"></div>
+            <div id="name"></div>
+            <div id="text"></div>
+        </td>
+    </tr>
+</table>
+
 <div class="instagram"></div>
 </body>
 </html>

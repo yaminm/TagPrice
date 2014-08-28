@@ -1,15 +1,12 @@
 /**
  * Created by Menashe on 23/08/14.
  */
-var DB4=[];//global db-in the end The OBJS be in him
-
-//the main function
+var DB4=[];
 function getDB(tagName,AccessKEY){
+
     var DB=[],
         TheTAG=tagName;//THE TAG NAME
     //  instgram   hash tags
-
-    //constaractur
     function HashTagOb(FromWhere,created_time,fullName,profilePic,UserName,text,picUrl,countLikes,users_in_photo) {
         this.FromWhere=FromWhere;
         this.created_time = created_time;
@@ -37,24 +34,24 @@ function getDB(tagName,AccessKEY){
             ob.images.standard_resolution.url,ob.likes.count,ob.users_in_photo);
     }
 
-
     var instaDB;
     jQuery(function($) {
         //instgarm
-
         $('.instagram').on('willLoadInstagram', function(event, options) {
-            //   console.log(options);
+            console.log("HELLO");
+
         });
         $('.instagram').on('didLoadInstagram', function(event, response) {
             instaDB=response.data;
+            console.log("HELLO");
 
             //   lin=String(response.data[0].images.standard_resolution.url)
 
             //console.log("INSTA:"+instaDB.length);
             for(var i=0;i<instaDB.length;i++){
-                DB[i]= instaToOb(instaDB[i]);
+                DB[i]=instaToOb(instaDB[i]);
             }
-           // FaceBook();
+            FaceBook();
             DB4=DB;
             // console.log(DB);
             // $('#theDiv').prepend('<img id="theImg" src='+ lin +' />');
@@ -64,6 +61,9 @@ function getDB(tagName,AccessKEY){
             hash: TheTAG,
             clientId: '2e39de636b174160add1ed0f94462a2b'
         });
+
+
+
     });
 
     /*  facebook hash tags*/
